@@ -1,0 +1,38 @@
+JUnit5 Topics
+https://www.youtube.com/watch?v=Wpz6b8ZEgcU&t=1237s
+
+Mocking/Testing web service calls:
+  MockRestServiceServer (w/ RestTemplate)
+  OkHTTP's MockWebServer (w/ WebClient @ Spring 5)
+
+Mocking/Testing Persistence layer calls:
+  TestContainers:
+    uses docker to bring up a local db, runs all your tests on that local db, finally shuts it down after tests have run
+
+Integration testing:
+
+  Context Caching:
+  Mainly affected by some key annotations like
+    @SpringBootTest
+    @ActiveProfiles
+    @TestPropertySource
+    @Import
+    @ContextConfiguration
+    @DirtiesContext
+      If you find urself using a lot of @DirtiesContext, probably a weakness, considering a different approach, like an `After` processing
+
+  Sliced Test
+  Integration test will bootstrap only a horizontal slice of application context, instead the entire application context.
+  Some important annotations:
+    web application testing
+      @WebMvcTest
+      @WebFluxTest
+      @RestClientTest
+    Persistence layer testing
+      @DataJpaTest
+      @DataMongoTest
+      @DataRedisTest
+
+------------------------------------------------------------------------------------------------------------
+TestContainers
+------------------------------------------------------------------------------------------------------------
