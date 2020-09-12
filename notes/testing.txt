@@ -36,3 +36,38 @@ Integration testing:
 ------------------------------------------------------------------------------------------------------------
 TestContainers
 ------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------
+Unit Testing Basics
+------------------------------------------------------------------------------------------------------------
+
+Test Lifecycle:
+    // static, once per class
+    @BeforeAll
+
+        // once for each test, thus 3 time here. set up script
+        @BeforeEach
+
+            @Test ...
+            @Test ...
+            @Test ...
+
+        // once for each class, thus 3 time here. tear down script
+        @AfterEach
+
+
+    // static, once per class also
+    @AfterAll
+
+Marking Tests by `@Tag`
+We can mark a test (class or method) by a particular tag, and then, in the run configurations of IntelliJ, edit it to only run that tag.
+This is similar to the older method of running tests via Test-Suites, which were also a grouping mechanism.
